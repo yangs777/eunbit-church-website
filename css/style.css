@@ -1,3 +1,160 @@
+/* 전체 기본 스타일 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: linear-gradient(135deg, #fde4ec 0%, #c6dbf7 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #25223b;
+}
+
+/* 헤더/네비 */
+.header-bg {
+  background: linear-gradient(90deg, #ffb6b9 20%, #c3bef7 100%);
+  color: #fff;
+  padding: 28px 0 18px 0;
+  text-align: center;
+  box-shadow: 0 3px 18px 0 #c7bcf440;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+.header-bg.scrolled {
+  background: linear-gradient(90deg, #c3bef7 40%, #ffb6b9 100%);
+  box-shadow: 0 3px 22px 0 #a992f199;
+}
+
+#mainLogo {
+  font-size: 2.7rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #2c186f;
+  text-shadow:
+    0 2px 0 #fff,
+    0 5px 18px #c6dbf788,
+    2px 4px 0 #e6e7f5;
+  -webkit-text-stroke: 1.5px #fff;
+  margin-bottom: 0.3em;
+  margin-top: 0.15em;
+  line-height: 1.07;
+  transition: font-size 0.28s cubic-bezier(.2,1,.6,1);
+}
+.header-bg.scrolled #mainLogo {
+  font-size: 1.7rem;
+}
+
+/* 네비게이션 */
+nav {
+  margin: 18px 0 2px 0;
+  text-align: center;
+}
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  font-weight: 700;
+  font-size: 1.09rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  padding: 4px 12px;
+  border-radius: 8px;
+  transition: color .17s, background .17s;
+}
+nav a:hover, nav a.active {
+  color: #6745af;
+  background: #fff8;
+}
+
+/* 슬로건 */
+.logo-slogan {
+  display: inline-block;
+  font-size: 1.23rem;
+  color: #111;
+  font-weight: 700;
+  background: #fffdfbe7;
+  border-radius: 2em;
+  padding: 0.55em 1.6em;
+  margin: 0 auto 16px auto;
+  text-shadow: 0 2px 8px #ebe4fa99, 1px 1px 0 #fff;
+  border: 1.2px solid #eae3ff;
+  box-shadow: 0 2px 14px 0 #eedbff22;
+}
+
+/* 버튼 */
+.btn-warm {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #fcb69f, #ffb6b9);
+  color: #613659;
+  font-weight: 700;
+  border-radius: 2em;
+  padding: 0.7em 2.3em;
+  margin: 0 10px;
+  border: none;
+  box-shadow: 0 2px 18px #cfcfff28;
+  cursor: pointer;
+  transition: background .17s, color .15s, box-shadow .16s, transform .16s;
+}
+.btn-warm:hover {
+  background: linear-gradient(90deg, #ffb6b9, #fcb69f 90%);
+  color: #47274e;
+  transform: translateY(-2px) scale(1.045);
+  box-shadow: 0 8px 28px #ddb5f646;
+}
+
+/* 카드 */
+.frosted {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 24px 0 #cebaff18;
+  border-radius: 1.4rem;
+  backdrop-filter: blur(4px);
+  border: 1.3px solid #eae3ff44;
+  transition: box-shadow 0.22s, transform 0.22s;
+}
+.frosted:hover {
+  box-shadow: 0 10px 32px #c3bef7a1;
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* 아이콘 애니메이션 */
+.glass-icon {
+  background: rgba(255,255,255,0.33);
+  border-radius: 9999px;
+  padding: 0.7em;
+  box-shadow: 0 2px 12px #c6dbf730;
+  margin-bottom: 1em;
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.2s;
+}
+.frosted:hover .glass-icon {
+  transform: scale(1.21) rotate(-10deg);
+  box-shadow: 0 8px 24px #c6dbf7cc;
+  background: rgba(255,255,255,0.62);
+}
+
+/* 기타 */
+h2, h3, h4 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #613659;
+}
+blockquote {
+  font-size: 1.07rem;
+  color: #7c5a69;
+  background: #fff7fbab;
+  border-left: 4px solid #cebbff88;
+  padding: 1.2em 1.5em;
+  border-radius: 1.5em;
+  margin-bottom: 1em;
+  font-weight: 500;
+}
+
+/* 반응형 */
+@media (max-width: 700px) {
+  #mainLogo { font-size: 1.2rem; }
+  .logo-slogan { font-size: 0.95rem; }
+}
 #mainLogo, .main-logo {
   font-size: 4rem;
   font-family: 'Noto Sans KR', sans-serif;
