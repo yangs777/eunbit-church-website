@@ -1,367 +1,332 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>은빛교회</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1548625149-fc4a29cf7092?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-attachment: fixed;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            text-decoration: none;
-            font-family: 'Nanum Myeongjo', serif;
-        }
-
-        .logo span {
-            color: #8e44ad;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            color: #8e44ad;
-            background: rgba(142, 68, 173, 0.1);
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
-            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1548625149-fc4a29cf7092?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            font-family: 'Nanum Myeongjo', serif;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            color: #34495e;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #8e44ad;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
-        }
-
-        .cta-button:hover {
-            background: #9b59b6;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
-        }
-
-        .section {
-            padding: 5rem 0;
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-            font-family: 'Nanum Myeongjo', serif;
-        }
-
-        .section-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: #8e44ad;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .worship-card {
-            position: relative;
-            padding-bottom: 2rem;
-        }
-
-        .youtube-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background: #ff0000;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .youtube-link:hover {
-            background: #cc0000;
-            transform: translateY(-2px);
-        }
-
-        .youtube-link i {
-            font-size: 1.2rem;
-        }
-
-        .location {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(142, 68, 173, 0.1);
-            border-radius: 10px;
-            margin-top: 2rem;
-        }
-
-        .location h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .location p {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-content p {
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-                margin-top: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>은빛교회 - 은혜의 빛</title>
+  <!-- TailwindCSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <!-- Noto Sans KR -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, #fde4ec 0%, #c6dbf7 100%);
+      min-height: 100vh;
+    }
+    .frosted {
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 4px 32px rgba(120, 120, 180, 0.12), 0 1.5px 8px rgba(180,120,180,0.06);
+      border-radius: 1.5rem;
+      backdrop-filter: blur(6px);
+    }
+    .header-bg {
+      background: linear-gradient(90deg, #ffb6b9 20%, #c3bef7 100%);
+    }
+    .hero-bg {
+      background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    .btn-warm {
+      background: linear-gradient(90deg, #fcb69f, #ffb6b9);
+      color: #613659;
+    }
+    .btn-warm:hover {
+      background: linear-gradient(90deg, #ffb6b9, #fcb69f);
+      color: #5f294b;
+      box-shadow: 0 2px 12px #fcb69f40;
+    }
+    .warm-shadow {
+      box-shadow: 0 4px 20px 0 rgba(240, 188, 159, 0.15);
+    }
+    .glass-icon {
+      background: rgba(255,255,255,0.33);
+      border-radius: 9999px;
+      padding: 0.7em;
+      box-shadow: 0 2px 12px #c6dbf730;
+      margin-bottom: 1em;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="#" class="logo">은<span>빛</span>교회</a>
-            <nav>
-                <ul>
-                    <li><a href="#about">소개</a></li>
-                    <li><a href="#worship">예배안내</a></li>
-                    <li><a href="#location">오시는 길</a></li>
-                    <li><a href="#contact">연락처</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="header-bg text-white py-8 shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-4 flex flex-col items-center">
+      <h1 class="text-4xl font-extrabold tracking-tight mb-2">은빛교회</h1>
+      <p class="text-xl opacity-90 mb-4">은혜의 빛으로 하나되는 공동체</p>
+      <nav class="flex flex-wrap gap-3 justify-center text-base font-semibold">
+        <a href="#about" class="hover:text-yellow-200 transition">교회소개</a>
+        <a href="#pastor" class="hover:text-yellow-200 transition">담임목사</a>
+        <a href="#service" class="hover:text-yellow-200 transition">예배안내</a>
+        <a href="#location" class="hover:text-yellow-200 transition">오시는길</a>
+        <a href="#online" class="hover:text-yellow-200 transition">온라인헌금</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>은빛교회에 오신 것을 환영합니다</h1>
-            <p>하나님의 은혜와 사랑이 넘치는 곳</p>
-            <a href="#worship" class="cta-button">예배 안내</a>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero-bg py-16 text-center flex flex-col justify-center items-center">
+    <h2 class="text-5xl sm:text-6xl font-extrabold mb-5 text-[#543353]">은혜의 빛으로<br class="sm:hidden"> 하나되는 은빛교회</h2>
+    <p class="text-xl text-[#7c5a69] mb-7 font-semibold">"너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요" (마 5:14)</p>
+    <div class="flex gap-4 flex-wrap justify-center">
+      <a href="#service" class="btn-warm font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">예배시간 보기</a>
+      <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="btn-warm border border-pink-200 font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">온라인 예배</a>
+    </div>
+  </section>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">교회 소개</h2>
-            <div class="section-content">
-                <div class="card">
-                    <h3>은빛교회는</h3>
-                    <p>하나님의 말씀을 바탕으로 신앙생활을 하는 교회입니다. 모든 성도들이 하나님의 은혜 안에서 성장하고, 서로 사랑하며 섬기는 공동체를 지향합니다.</p>
-                </div>
-                <div class="card">
-                    <h3>우리의 비전</h3>
-                    <p>하나님의 말씀으로 세상을 변화시키고, 이웃을 사랑하며 섬기는 교회가 되고자 합니다. 모든 성도들이 하나님의 은혜 안에서 성장하고, 세상에 빛과 소금의 역할을 감당하도록 돕습니다.</p>
-                </div>
+  <!-- Info Cards -->
+  <section class="py-10">
+    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-7">
+      <div class="frosted p-8 text-center warm-shadow">
+        <div class="glass-icon"><i class="fas fa-clock text-3xl text-pink-400"></i></div>
+        <h3 class="text-lg font-bold mb-2 text-[#543353]">예배 시간</h3>
+        <p class="text-gray-700">주일예배: 오전 10:40<br>금요예배: 오후 8:00<br>온라인 실시간 중계</p>
+      </div>
+      <div class="frosted p-8 text-center warm-shadow">
+        <div class="glass-icon"><i class="fas fa-heart text-3xl text-orange-400"></i></div>
+        <h3 class="text-lg font-bold mb-2 text-[#543353]">새가족 환영</h3>
+        <p class="text-gray-700">따뜻한 가족 같은 공동체로<br>주님 안에서 여러분을 초대합니다!</p>
+      </div>
+      <div class="frosted p-8 text-center warm-shadow">
+        <div class="glass-icon"><i class="fas fa-video text-3xl text-purple-400"></i></div>
+        <h3 class="text-lg font-bold mb-2 text-[#543353]">온라인 예배</h3>
+        <p class="text-gray-700">YouTube를 통한<br>실시간 온라인 예배<br>언제 어디서나 함께</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="frosted p-10 shadow-xl">
+        <h2 class="text-3xl font-extrabold mb-4 text-[#613659]">교회 소개</h2>
+        <div class="grid md:grid-cols-2 gap-7">
+          <div>
+            <h4 class="font-semibold mb-1 text-[#9a4a73]">교회 연혁</h4>
+            <p class="text-gray-700 mb-4">1996년 10월 26일 개척한 대한예수교장로회(통합) 인천노회 소속 교회로, 28년의 역사를 가진 따뜻한 신앙 공동체입니다.</p>
+            <h4 class="font-semibold mb-1 text-[#9a4a73]">교회 특징</h4>
+            <ul class="text-gray-700 space-y-2">
+              <li>• 소규모 가족 같은 사랑의 공동체</li>
+              <li>• 온라인 예배 시스템 완비</li>
+              <li>• 맞춤 양육과 돌봄</li>
+              <li>• 세대를 아우르는 교제</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1 text-[#9a4a73]">비전과 사명</h4>
+            <p class="text-gray-700 mb-4">하나님의 은혜의 빛으로 어둠을 밝히며, 복음의 진리 안에서 하나되어 지역과 열방을 섬기는 교회</p>
+            <h4 class="font-semibold mb-1 text-[#9a4a73]">교회 위치</h4>
+            <p class="text-gray-700">인천광역시 계양구 용종동 214-1 지하 은빛교회</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pastor -->
+  <section id="pastor" class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="frosted p-10 shadow-xl">
+        <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">담임목사 인사말</h2>
+        <div class="flex flex-col md:flex-row gap-8 items-center">
+          <img src="https://page1.genspark.site/v1/base64_upload/a98fca8747e428e70d53e95f29e6c499" alt="양승보 목사님" class="w-52 h-52 object-cover rounded-full border-4 border-white shadow-md">
+          <div>
+            <blockquote class="italic text-lg text-[#7c5a69] mb-3">"사랑하는 성도 여러분과 이 홈페이지를 방문해주신 모든 분들께 하나님의 은혜와 평강이 함께하시기를 기도합니다.<br><br>
+            은빛교회는 1996년 개척 이래 하나님의 은혜의 빛으로 어둠을 밝히며, 작지만 따뜻한 가정과 같은 공동체를 이루어가고 있습니다. 이 시대에 주님의 사랑을 실천하며, 복음의 진리 안에서 하나되어 서로 사랑하고 섬기는 교회가 되기를 소망합니다.<br><br>
+            언제든지 편안하게 은빛교회로 오셔서 하나님의 사랑을 경험하시고, 우리와 함께 신앙의 여정을 걸어가시기를 진심으로 초대합니다."
+            </blockquote>
+            <div class="text-right text-[#613659] font-semibold">은빛교회 담임목사 양승보</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Times -->
+  <section id="service" class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="frosted p-10 shadow-xl">
+        <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">예배 안내</h2>
+        <div class="grid md:grid-cols-2 gap-7">
+          <div>
+            <h3 class="font-bold mb-3 text-[#9a4a73] text-center text-xl">예배 시간</h3>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center border-b pb-2">
+                <span class="font-semibold text-gray-700">주일예배</span>
+                <span class="text-pink-500 font-bold">오전 10:40</span>
+              </div>
+              <div class="flex justify-between items-center border-b pb-2">
+                <span class="font-semibold text-gray-700">금요예배</span>
+                <span class="text-pink-500 font-bold">오후 8:00</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="font-semibold text-gray-700">온라인 예배</span>
+                <span class="text-purple-500 font-bold">실시간 중계</span>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <section id="worship" class="section">
-        <div class="container">
-            <h2 class="section-title">예배 안내</h2>
-            <div class="section-content">
-                <div class="card worship-card">
-                    <h3>주일 예배</h3>
-                    <p>오전 11:00 - 주일 대예배</p>
-                    <p>오전 9:30 - 주일 학교</p>
-                    <a href="https://www.youtube.com/@%EA%B3%84%EC%96%91%EA%B5%AC%EC%9D%80%EB%B9%9B%EA%B5%90%ED%9A%8C" target="_blank" class="youtube-link">
-                        <i class="fab fa-youtube"></i>
-                        은빛교회 유튜브 채널 바로가기
-                    </a>
-                </div>
-                <div class="card">
-                    <h3>수요 예배</h3>
-                    <p>저녁 7:30 - 수요 저녁 예배</p>
-                </div>
-                <div class="card">
-                    <h3>새벽 기도회</h3>
-                    <p>매일 아침 5:30 - 새벽 기도회</p>
-                </div>
+          </div>
+          <div>
+            <h3 class="font-bold mb-3 text-[#9a4a73] text-center text-xl">예배 참여 방법</h3>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3"><i class="fas fa-church text-pink-400"></i><span class="text-gray-700">교회 현장 예배 참석</span></div>
+              <div class="flex items-center space-x-3"><i class="fab fa-youtube text-orange-400"></i><span class="text-gray-700">YouTube 온라인 실시간 예배</span></div>
+              <div class="flex items-center space-x-3"><i class="fas fa-mobile-alt text-purple-400"></i><span class="text-gray-700">모바일 앱을 통한 참여</span></div>
             </div>
-        </div>
-    </section>
-
-    <section id="location" class="section">
-        <div class="container">
-            <h2 class="section-title">오시는 길</h2>
-            <div class="section-content">
-                <div class="card">
-                    <h3>주소</h3>
-                    <p>인천광역시 계양구 계양문화로 151</p>
-                    <p>신대진아파트 상가</p>
-                </div>
-                <div class="card">
-                    <h3>대중교통</h3>
-                    <p>계양역에서 도보 5분</p>
-                    <p>신대진아파트 상가에 위치</p>
-                </div>
+            <div class="mt-5 text-center">
+              <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="btn-warm px-6 py-2 rounded-lg font-bold hover:scale-105 transition inline-flex items-center space-x-2"><i class="fab fa-youtube"></i><span>온라인 예배 참여</span></a>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">연락처</h2>
-            <div class="section-content">
-                <div class="card">
-                    <h3>담임목사</h3>
-                    <p>이름: 홍길동</p>
-                    <p>전화: 010-1234-5678</p>
+  <!-- Location -->
+  <section id="location" class="py-16">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="frosted p-10 shadow-xl">
+        <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">오시는 길</h2>
+        <div class="grid md:grid-cols-2 gap-7">
+          <div>
+            <h3 class="font-bold mb-3 text-[#9a4a73]">교회 정보</h3>
+            <div class="space-y-3">
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-map-marker-alt text-pink-400 mt-1"></i>
+                <div>
+                  <span class="font-semibold text-gray-700">주소</span>
+                  <div class="text-gray-700">인천광역시 계양구 용종동 214-1 지하 은빛교회</div>
+                  <div class="text-sm text-gray-400">우편번호: 21061</div>
                 </div>
-                <div class="card">
-                    <h3>교회 연락처</h3>
-                    <p>전화: 031-123-4567</p>
-                    <p>이메일: info@eunbitchurch.org</p>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-phone text-orange-400"></i>
+                <div>
+                  <span class="font-semibold text-gray-700">전화번호</span>
+                  <div class="text-gray-700">032-553-8003</div>
                 </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-purple-400"></i>
+                <div>
+                  <span class="font-semibold text-gray-700">이메일</span>
+                  <div class="text-gray-700">eunbit8004@hanmail.net</div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div>
+            <h3 class="font-bold mb-3 text-[#9a4a73]">대중교통 안내</h3>
+            <div class="space-y-3">
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-subway text-pink-400 mt-1"></i>
+                <div>
+                  <span class="font-semibold text-gray-700">지하철</span>
+                  <div class="text-gray-700">인천1호선 임학역 하차<br>도보 약 12분 (택시 3분)</div>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-bus text-orange-400 mt-1"></i>
+                <div>
+                  <span class="font-semibold text-gray-700">버스</span>
+                  <div class="text-gray-700">임학역 정류장에서<br>마을버스 또는 시내버스 이용</div>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-car text-purple-400 mt-1"></i>
+                <div>
+                  <span class="font-semibold text-gray-700">주차</span>
+                  <div class="text-gray-700">주차장 이용 가능</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+        <div class="mt-10 rounded-xl overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.google.com/maps?q=37.541292,126.741752&hl=ko&z=18&output=embed"
+            width="100%" height="380"
+            style="border:0;"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="footer-content">
-            <p>은빛교회</p>
-            <p>인천광역시 계양구 계양문화로 151 (신대진아파트 상가)</p>
-            <p>전화: 031-123-4567 | 이메일: info@eunbitchurch.org</p>
+  <!-- Online Giving -->
+  <section id="online" class="py-16">
+    <div class="container mx-auto px-4 max-w-xl">
+      <div class="frosted p-10 shadow-xl text-center">
+        <h2 class="text-3xl font-extrabold mb-5 text-[#613659]">온라인 헌금</h2>
+        <div class="text-center mb-5">
+          <i class="fas fa-hand-holding-heart text-3xl text-pink-400 mb-2"></i>
+          <h3 class="text-lg font-bold mb-1 text-[#543353]">하나님께 드리는 감사의 헌금</h3>
+          <p class="text-gray-700 mb-3">온라인으로도 편리하게 헌금하실 수 있습니다</p>
         </div>
-    </footer>
+        <div class="bg-white bg-opacity-70 rounded-lg p-6 mb-3">
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold">은행명</span>
+            <span class="text-lg font-bold">새마을금고</span>
+          </div>
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold">계좌번호</span>
+            <span class="text-lg font-bold font-mono">9002-0986-9241-3</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="font-semibold">예금주</span>
+            <span class="text-lg font-bold">은빛교회</span>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">헌금 후 교회로 연락주시면 헌금증명서를 발급해드립니다</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="header-bg text-white py-10">
+    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-7">
+      <div>
+        <h3 class="text-xl font-bold mb-2">은빛교회</h3>
+        <p class="opacity-90 mb-3">은혜의 빛으로 하나되는 공동체</p>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com/Eunbit8004" target="_blank" class="hover:opacity-80 transition"><i class="fab fa-facebook-f text-2xl"></i></a>
+          <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="hover:opacity-80 transition"><i class="fab fa-youtube text-2xl"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">연락처</h4>
+        <p class="opacity-90 mb-1">📞 032-553-8003</p>
+        <p class="opacity-90 mb-1">📧 eunbit8004@hanmail.net</p>
+        <p class="opacity-90">📍 인천 계양구 용종동 214-1 지하 은빛교회</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">예배시간</h4>
+        <p class="opacity-90 mb-1">주일예배: 오전 10:40</p>
+        <p class="opacity-90 mb-1">금요예배: 오후 8:00</p>
+        <p class="opacity-90">온라인예배: 실시간 중계</p>
+      </div>
+    </div>
+    <div class="border-t border-white border-opacity-20 mt-8 pt-5 text-center text-sm opacity-80">
+      © 2024 은빛교회. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    // 스무스 스크롤
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
-</html> 
+</html>
