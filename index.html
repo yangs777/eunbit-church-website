@@ -4,125 +4,125 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>은빛교회 - 은혜의 빛</title>
-  <!-- Gmarket Sans (굵은 제목용) -->
+  <!-- Gmarket Sans (제목) -->
   <link href="https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSans.css" rel="stylesheet">
-  <!-- Spoqa Han Sans Neo (본문·UI용) -->
-  <link href="https://cdn.jsdelivr.net/gh/webfontworld/spoqa/SpoqaHanSansNeo.css" rel="stylesheet">
-  <!-- Montserrat (영문/숫자/모던UI) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <!-- Montserrat (영문/숫자) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
   <!-- TailwindCSS & FontAwesome -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <style>
-    html, body {
-      background: linear-gradient(135deg, #f1eaff 0%, #ffe2e2 100%);
-      min-height: 100vh;
-      color: #333;
-    }
     body {
-      font-family: 'Spoqa Han Sans Neo', 'Montserrat', 'GmarketSans', sans-serif;
-      letter-spacing: -0.01em;
+      font-family: 'GmarketSans', 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #f1eaff 0%, #ffe2e2 100%);
+      color: #25223b;
+      min-height: 100vh;
+      margin: 0;
     }
-    /* 헤더 & 네비 */
     .header-bg {
       background: linear-gradient(90deg, #ece9f7 40%, #ffe7e2 100%);
       box-shadow: 0 3px 18px 0 #c7bcf440;
+      padding-top: 32px;
+      padding-bottom: 24px;
+    }
+    .logo-main {
+      font-family: 'GmarketSans', 'Montserrat', sans-serif;
+      font-size: 4.2rem;
+      font-weight: 900;
+      color: #2c186f;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      text-align: center;
+      background: none;
+      text-shadow:
+        0 1px 0 #fff,
+        0 3px 14px #b6a6e7cc,
+        2px 5px 0 #e6e7f5,
+        0 0px 14px #cebaff40;
+      -webkit-text-stroke: 2px #fff;
+      margin-bottom: 0.2em;
+      margin-top: 0.1em;
+      transition: font-size .3s;
+    }
+    @media (max-width: 700px) {
+      .logo-main { font-size: 2.1rem; }
+    }
+    .logo-slogan {
+      display: inline-block;
+      font-family: 'GmarketSans', 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      color: #111;
+      font-weight: 700;
+      background: #fffdfbe7;
+      border-radius: 2em;
+      padding: 0.6em 1.8em;
+      margin: 0 auto 18px auto;
+      text-shadow:
+        0 2px 6px #eee9fa,
+        1px 1px 0 #fff,
+        0 1px 10px #9b8dff1a;
+      box-shadow: 0 2px 18px 0 #eedbff2e;
+      border: 1.6px solid #eae3ff;
+    }
+    nav {
+      margin: 24px auto 2px auto;
+      text-align: center;
     }
     nav a {
-      font-family: 'Spoqa Han Sans Neo', 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: 1.08rem;
-    }
-    nav a.active,
-    nav a:hover { color: #a572e6; text-shadow: 0 1px 6px #ffe3ff80; }
-    /* 은빛교회(로고) 효과 */
-    .big-logo {
-      font-family: 'GmarketSans', 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 3.7rem;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      background: linear-gradient(90deg, #7f73fa 0%, #eac7ff 80%, #ffd6e3 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      text-shadow:
-        2px 4px 18px #bbaee9cc,
-        0 1px 0 #fff8,
-        0 0px 18px #d0c4f840;
-      animation: popUp 1.2s cubic-bezier(.25,1.7,.7,1.1);
-    }
-    @keyframes popUp {
-      0% { transform: scale(0.9) translateY(40px); opacity: 0; }
-      60% { transform: scale(1.03) translateY(-4px); opacity: 1; }
-      100% { transform: scale(1) translateY(0); opacity: 1; }
-    }
-    @media (max-width:600px) {
-      .big-logo { font-size: 2.1rem; }
-    }
-    /* 은혜의 빛으로 하나되는 은빛교회 효과 */
-    .main-slogan {
-      color: #111;
-      font-family: 'Spoqa Han Sans Neo', 'Montserrat', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      text-align: center;
-      margin-bottom: 0.4em;
-      text-shadow:
-        0 4px 18px #ffffffb7,
-        0 2px 8px #7f73fa22,
-        0 0px 0 #fff,
-        1px 1px 0 #ffbfd8;
-      background: rgba(255,255,255,0.45);
-      border-radius: 1.5em;
-      padding: 0.6em 1.2em;
       display: inline-block;
-      transition: box-shadow .35s;
-      box-shadow: 0 2px 18px 0 #fbcfffb8;
-      border: 1.3px solid #f6e3fd33;
-      position: relative;
+      margin: 0 10px;
+      font-family: 'Montserrat', 'GmarketSans', sans-serif;
+      font-weight: 700;
+      font-size: 1.09rem;
+      color: #5d43a2;
+      letter-spacing: -0.01em;
+      padding: 4px 11px;
+      border-radius: 8px;
+      transition: color .18s, background .18s;
+      text-decoration: none;
     }
-    .main-slogan::after {
-      content: '';
-      position: absolute; left: 30px; right: 30px; bottom: 0; height: 3px;
-      background: linear-gradient(90deg, #eac7ff66 10%, #fddede 90%);
-      border-radius: 1.5px;
-      filter: blur(2px);
+    nav a:hover, nav a.active {
+      color: #fff;
+      background: linear-gradient(90deg, #ab89f8 0%, #ffd6e3 100%);
+      box-shadow: 0 3px 14px #d4c1fd55;
     }
-    /* 정보 카드, 버튼 */
-    .frosted {
-      background: rgba(255,255,255,0.8);
-      box-shadow: 0 4px 24px 0 #cebaff19;
-      border-radius: 1.5rem;
-      backdrop-filter: blur(4px);
-      border: 1.3px solid #eae3ff44;
+    .hero-btns {
+      margin: 24px 0 18px 0;
+      text-align: center;
     }
     .btn-warm {
       font-family: 'GmarketSans', 'Montserrat', sans-serif;
-      background: linear-gradient(90deg, #fcb69f, #ffb6b9);
-      color: #603c7d;
       font-size: 1.1rem;
+      background: linear-gradient(90deg, #fcb69f, #ffb6b9);
+      color: #613659;
       font-weight: 700;
       border-radius: 2em;
-      box-shadow: 0 2px 18px #cfcfff24;
+      padding: 0.7em 2.3em;
+      margin: 0 9px;
       border: none;
-      padding: 0.75em 2.4em;
-      transition: transform .18s, box-shadow .16s;
+      box-shadow: 0 2px 18px #cfcfff28;
+      cursor: pointer;
+      transition: background .16s, color .15s, box-shadow .16s, transform .16s;
     }
     .btn-warm:hover {
       background: linear-gradient(90deg, #ffb6b9, #fcb69f 90%);
-      transform: translateY(-2px) scale(1.045);
-      box-shadow: 0 8px 32px #ddb5f646;
       color: #47274e;
+      transform: translateY(-2px) scale(1.045);
+      box-shadow: 0 8px 28px #ddb5f646;
+    }
+    .frosted {
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 4px 24px 0 #cebaff18;
+      border-radius: 1.4rem;
+      backdrop-filter: blur(4px);
+      border: 1.3px solid #eae3ff44;
     }
     .glass-icon {
-      background: rgba(255,255,255,0.38);
+      background: rgba(255,255,255,0.4);
       border-radius: 9999px;
       padding: 0.7em;
       margin-bottom: 1em;
-      box-shadow: 0 2px 12px #bbaee922;
+      box-shadow: 0 2px 10px #bbaee91b;
       display: inline-block;
     }
     h2, h3, h4 {
@@ -132,10 +132,10 @@
       color: #603c7d;
     }
     blockquote {
-      font-family: 'Montserrat', 'GmarketSans', 'Spoqa Han Sans Neo', sans-serif;
-      font-size: 1.15rem;
+      font-family: 'Montserrat', 'GmarketSans', sans-serif;
+      font-size: 1.07rem;
       color: #7c5a69;
-      background: #fff7fb82;
+      background: #fff7fbab;
       border-left: 4px solid #cebbff88;
       padding: 1.2em 1.5em;
       border-radius: 1.5em;
@@ -146,13 +146,11 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="header-bg text-gray-900 py-7 shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-4 flex flex-col items-center">
-      <h1 class="big-logo mb-3 mt-2 tracking-tight">은빛교회</h1>
-      <div class="main-slogan mb-5">
-        은혜의 빛으로 하나되는 은빛교회
-      </div>
-      <nav class="flex flex-wrap gap-4 justify-center text-base font-semibold mt-3 mb-1">
+  <header class="header-bg">
+    <div class="container mx-auto flex flex-col items-center">
+      <h1 class="logo-main">은빛교회</h1>
+      <div class="logo-slogan">은혜의 빛으로 하나되는 은빛교회</div>
+      <nav>
         <a href="#about">교회소개</a>
         <a href="#pastor">담임목사</a>
         <a href="#service">예배안내</a>
@@ -163,16 +161,15 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-bg py-14 text-center flex flex-col justify-center items-center">
-    <div class="mb-10"></div>
-    <div class="flex gap-4 flex-wrap justify-center mt-5">
+  <section style="background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%); padding: 36px 0 18px 0;">
+    <div class="hero-btns">
       <a href="#service" class="btn-warm">예배시간 보기</a>
       <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="btn-warm">온라인 예배</a>
     </div>
   </section>
 
   <!-- Info Cards -->
-  <section class="py-10">
+  <section class="py-8">
     <div class="container mx-auto px-4 grid md:grid-cols-3 gap-7">
       <div class="frosted p-8 text-center">
         <div class="glass-icon"><i class="fas fa-clock text-3xl text-pink-400"></i></div>
@@ -193,7 +190,7 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="py-16">
+  <section id="about" class="py-14">
     <div class="container mx-auto px-4 max-w-4xl">
       <div class="frosted p-10">
         <h2 class="text-3xl font-extrabold mb-4">교회 소개</h2>
@@ -221,7 +218,7 @@
   </section>
 
   <!-- Pastor -->
-  <section id="pastor" class="py-16">
+  <section id="pastor" class="py-14">
     <div class="container mx-auto px-4 max-w-4xl">
       <div class="frosted p-10">
         <h2 class="text-3xl font-extrabold mb-7 text-center">담임목사 인사말</h2>
@@ -240,7 +237,7 @@
   </section>
 
   <!-- Service Times -->
-  <section id="service" class="py-16">
+  <section id="service" class="py-14">
     <div class="container mx-auto px-4 max-w-4xl">
       <div class="frosted p-10">
         <h2 class="text-3xl font-extrabold mb-7 text-center">예배 안내</h2>
@@ -279,7 +276,7 @@
   </section>
 
   <!-- Location -->
-  <section id="location" class="py-16">
+  <section id="location" class="py-14">
     <div class="container mx-auto px-4 max-w-5xl">
       <div class="frosted p-10">
         <h2 class="text-3xl font-extrabold mb-7 text-center">오시는 길</h2>
@@ -351,7 +348,7 @@
   </section>
 
   <!-- Online Giving -->
-  <section id="online" class="py-16">
+  <section id="online" class="py-14">
     <div class="container mx-auto px-4 max-w-xl">
       <div class="frosted p-10 text-center">
         <h2 class="text-3xl font-extrabold mb-5">온라인 헌금</h2>
@@ -360,7 +357,7 @@
           <h3 class="text-lg font-bold mb-1">하나님께 드리는 감사의 헌금</h3>
           <p class="text-gray-700 mb-3">온라인으로도 편리하게 헌금하실 수 있습니다</p>
         </div>
-        <div class="bg-white bg-opacity-70 rounded-lg p-6 mb-3">
+        <div class="bg-white bg-opacity-80 rounded-lg p-6 mb-3">
           <div class="flex justify-between mb-2">
             <span class="font-semibold">은행명</span>
             <span class="text-lg font-bold">새마을금고</span>
@@ -380,12 +377,12 @@
   </section>
 
   <!-- Footer -->
-  <footer class="header-bg text-gray-900 py-10">
-    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-7">
+  <footer class="header-bg py-10 text-center text-gray-900">
+    <div class="container mx-auto grid md:grid-cols-3 gap-7">
       <div>
         <h3 class="text-xl font-bold mb-2">은빛교회</h3>
         <p class="opacity-90 mb-3">은혜의 빛으로 하나되는 공동체</p>
-        <div class="flex space-x-4">
+        <div class="flex space-x-4 justify-center">
           <a href="https://www.facebook.com/Eunbit8004" target="_blank" class="hover:opacity-80 transition"><i class="fab fa-facebook-f text-2xl"></i></a>
           <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="hover:opacity-80 transition"><i class="fab fa-youtube text-2xl"></i></a>
         </div>
