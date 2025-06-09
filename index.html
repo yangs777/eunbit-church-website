@@ -1,60 +1,367 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>은빛교회 (은혜의 빛)</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/mobile.css" media="only screen and (max-width: 600px)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>은빛교회</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1548625149-fc4a29cf7092?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .logo span {
+            color: #8e44ad;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #8e44ad;
+            background: rgba(142, 68, 173, 0.1);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1548625149-fc4a29cf7092?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #34495e;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #8e44ad;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #9b59b6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+        }
+
+        .section {
+            padding: 5rem 0;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #8e44ad;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .worship-card {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .youtube-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #ff0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .youtube-link:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .youtube-link i {
+            font-size: 1.2rem;
+        }
+
+        .location {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(142, 68, 173, 0.1);
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .location h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .location p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>은빛교회 (은혜의 빛)</h1>
-    <nav>
-      <a href="index.html">홈</a>
-      <a href="mobile.html">모바일</a>
-      <a href="#about">교회소개</a>
-      <a href="#contact">오시는길/연락처</a>
-    </nav>
-  </header>
-  <main>
-    <section id="about">
-      <img src="https://page1.genspark.site/v1/base64_upload/a98fca8747e428e70d53e95f29e6c499" alt="양승보 목사님 사진" class="pastor-img">
-      <h2>교회 소개</h2>
-      <ul>
-        <li><strong>담임목사:</strong> 양승보 목사</li>
-        <li><strong>주소:</strong> 인천광역시 계양구 계양문화로 151 B01호(용종동, 신대진APT상가)</li>
-        <li><strong>전화:</strong> <a href="tel:0325538003">032-553-8003</a></li>
-        <li><strong>이메일:</strong> <a href="mailto:eunbit8004@hanmail.net">eunbit8004@hanmail.net</a></li>
-        <li><strong>예배시간:</strong> 주일 10:40, 금요 8:00</li>
-        <li><strong>헌금계좌:</strong> 새마을금고 9002-0986-9241-3 은빛교회</li>
-        <li><strong>YouTube:</strong> <a href="https://www.youtube.com/results?search_query=계양구은빛교회" target="_blank">계양구은빛교회</a></li>
-      </ul>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">은<span>빛</span>교회</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">소개</a></li>
+                    <li><a href="#worship">예배안내</a></li>
+                    <li><a href="#location">오시는 길</a></li>
+                    <li><a href="#contact">연락처</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>은빛교회에 오신 것을 환영합니다</h1>
+            <p>하나님의 은혜와 사랑이 넘치는 곳</p>
+            <a href="#worship" class="cta-button">예배 안내</a>
+        </div>
     </section>
-    <section id="worship">
-      <h2>온라인 예배</h2>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed?listType=search&list=계양구은빛교회" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">교회 소개</h2>
+            <div class="section-content">
+                <div class="card">
+                    <h3>은빛교회는</h3>
+                    <p>하나님의 말씀을 바탕으로 신앙생활을 하는 교회입니다. 모든 성도들이 하나님의 은혜 안에서 성장하고, 서로 사랑하며 섬기는 공동체를 지향합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>우리의 비전</h3>
+                    <p>하나님의 말씀으로 세상을 변화시키고, 이웃을 사랑하며 섬기는 교회가 되고자 합니다. 모든 성도들이 하나님의 은혜 안에서 성장하고, 세상에 빛과 소금의 역할을 감당하도록 돕습니다.</p>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="map">
-      <h2>오시는 길</h2>
-      <div class="map-responsive">
-        <iframe src="https://www.google.com/maps?q=인천광역시+계양구+계양문화로+151+B01호&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
+
+    <section id="worship" class="section">
+        <div class="container">
+            <h2 class="section-title">예배 안내</h2>
+            <div class="section-content">
+                <div class="card worship-card">
+                    <h3>주일 예배</h3>
+                    <p>오전 11:00 - 주일 대예배</p>
+                    <p>오전 9:30 - 주일 학교</p>
+                    <a href="https://www.youtube.com/@%EA%B3%84%EC%96%91%EA%B5%AC%EC%9D%80%EB%B9%9B%EA%B5%90%ED%9A%8C" target="_blank" class="youtube-link">
+                        <i class="fab fa-youtube"></i>
+                        은빛교회 유튜브 채널 바로가기
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>수요 예배</h3>
+                    <p>저녁 7:30 - 수요 저녁 예배</p>
+                </div>
+                <div class="card">
+                    <h3>새벽 기도회</h3>
+                    <p>매일 아침 5:30 - 새벽 기도회</p>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="contact">
-      <h2>문의하기</h2>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="이름" required>
-        <input type="email" name="email" placeholder="이메일" required>
-        <textarea name="message" placeholder="문의 내용" required></textarea>
-        <button type="submit">보내기</button>
-      </form>
-      <p>문의 시 <b>yangs7777@gmail.com</b>으로 이메일 알림이 전송됩니다.</p>
+
+    <section id="location" class="section">
+        <div class="container">
+            <h2 class="section-title">오시는 길</h2>
+            <div class="section-content">
+                <div class="card">
+                    <h3>주소</h3>
+                    <p>인천광역시 계양구 계양문화로 151</p>
+                    <p>신대진아파트 상가</p>
+                </div>
+                <div class="card">
+                    <h3>대중교통</h3>
+                    <p>계양역에서 도보 5분</p>
+                    <p>신대진아파트 상가에 위치</p>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
-  <footer>
-    &copy; 2024 은빛교회. All rights reserved.
-  </footer>
-  <script src="js/main.js"></script>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">연락처</h2>
+            <div class="section-content">
+                <div class="card">
+                    <h3>담임목사</h3>
+                    <p>이름: 홍길동</p>
+                    <p>전화: 010-1234-5678</p>
+                </div>
+                <div class="card">
+                    <h3>교회 연락처</h3>
+                    <p>전화: 031-123-4567</p>
+                    <p>이메일: info@eunbitchurch.org</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>은빛교회</p>
+            <p>인천광역시 계양구 계양문화로 151 (신대진아파트 상가)</p>
+            <p>전화: 031-123-4567 | 이메일: info@eunbitchurch.org</p>
+        </div>
+    </footer>
 </body>
 </html> 
