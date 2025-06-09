@@ -4,18 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>은빛교회 - 은혜의 빛</title>
-  <!-- TailwindCSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Pretendard -->
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css" />
+  <!-- SUIT (한글/영문 모두 세련된 산뜻함) -->
+  <link href="https://cdn.jsdelivr.net/gh/webfontworld/suit/SUIT.css" rel="stylesheet">
+  <!-- Cafe24 고운밤체 (감성포인트) -->
+  <link href="https://cdn.jsdelivr.net/gh/webfontworld/cafe24Goun/Cafe24Goun.css" rel="stylesheet">
+  <!-- 나눔스퀘어라운드 (버튼/강조) -->
+  <link href="https://cdn.jsdelivr.net/gh/webfontworld/NanumSquareRound/NanumSquareRound.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <!-- Noto Sans KR -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- TailwindCSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     html, body {
       height: 100%;
-      font-family: 'Noto Sans KR', sans-serif;
       background: linear-gradient(135deg, #fde4ec 0%, #c6dbf7 100%);
       min-height: 100vh;
+    }
+    body {
+      font-family: 'Pretendard', 'SUIT', 'NanumSquareRound', sans-serif;
+      color: #453040;
     }
     .frosted {
       background: rgba(255,255,255,0.7);
@@ -32,6 +42,8 @@
     .btn-warm {
       background: linear-gradient(90deg, #fcb69f, #ffb6b9);
       color: #613659;
+      font-family: 'NanumSquareRound', 'SUIT', 'Pretendard', sans-serif;
+      font-weight: 700;
     }
     .btn-warm:hover {
       background: linear-gradient(90deg, #ffb6b9, #fcb69f);
@@ -49,13 +61,38 @@
       margin-bottom: 1em;
       display: inline-block;
     }
+    /* 폰트 믹스 타이틀/로고/인삿말 */
+    h1, h2, h3, .main-title {
+      font-family: 'SUIT', 'Cafe24Goun', 'Pretendard', sans-serif;
+      letter-spacing: -0.02em;
+      color: #613659;
+    }
+    .hero-bg .main-title, blockquote {
+      font-family: 'Cafe24Goun', 'SUIT', 'Pretendard', sans-serif;
+      letter-spacing: -0.03em;
+      color: #7c5a69;
+    }
+    .btn-warm, .button {
+      font-family: 'NanumSquareRound', 'SUIT', 'Pretendard', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    blockquote {
+      font-size: 1.18rem;
+      font-weight: 400;
+    }
+    /* 유동 반응형 */
+    @media (max-width: 640px) {
+      h2, .main-title { font-size: 2rem !important; }
+      .frosted { padding: 1.5rem !important; }
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header-bg text-white py-8 shadow-xl sticky top-0 z-50">
     <div class="container mx-auto px-4 flex flex-col items-center">
-      <h1 class="text-4xl font-extrabold tracking-tight mb-2">은빛교회</h1>
+      <h1 class="text-4xl font-extrabold tracking-tight mb-2 main-title">은빛교회</h1>
       <p class="text-xl opacity-90 mb-4">은혜의 빛으로 하나되는 공동체</p>
       <nav class="flex flex-wrap gap-3 justify-center text-base font-semibold">
         <a href="#about" class="hover:text-yellow-200 transition">교회소개</a>
@@ -69,11 +106,11 @@
 
   <!-- Hero Section -->
   <section class="hero-bg py-16 text-center flex flex-col justify-center items-center">
-    <h2 class="text-5xl sm:text-6xl font-extrabold mb-5 text-[#543353]">은혜의 빛으로<br class="sm:hidden"> 하나되는 은빛교회</h2>
-    <p class="text-xl text-[#7c5a69] mb-7 font-semibold">"너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요" (마 5:14)</p>
+    <h2 class="text-5xl sm:text-6xl font-extrabold mb-5 main-title">은혜의 빛으로<br class="sm:hidden"> 하나되는 은빛교회</h2>
+    <p class="text-xl mb-7 font-semibold" style="color:#7c5a69;">"너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요" (마 5:14)</p>
     <div class="flex gap-4 flex-wrap justify-center">
-      <a href="#service" class="btn-warm font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">예배시간 보기</a>
-      <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="btn-warm border border-pink-200 font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">온라인 예배</a>
+      <a href="#service" class="btn-warm font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition button">예배시간 보기</a>
+      <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="btn-warm border border-pink-200 font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition button">온라인 예배</a>
     </div>
   </section>
 
@@ -82,17 +119,17 @@
     <div class="container mx-auto px-4 grid md:grid-cols-3 gap-7">
       <div class="frosted p-8 text-center warm-shadow">
         <div class="glass-icon"><i class="fas fa-clock text-3xl text-pink-400"></i></div>
-        <h3 class="text-lg font-bold mb-2 text-[#543353]">예배 시간</h3>
+        <h3 class="text-lg font-bold mb-2">예배 시간</h3>
         <p class="text-gray-700">주일예배: 오전 10:40<br>금요예배: 오후 8:00<br>온라인 실시간 중계</p>
       </div>
       <div class="frosted p-8 text-center warm-shadow">
         <div class="glass-icon"><i class="fas fa-heart text-3xl text-orange-400"></i></div>
-        <h3 class="text-lg font-bold mb-2 text-[#543353]">새가족 환영</h3>
+        <h3 class="text-lg font-bold mb-2">새가족 환영</h3>
         <p class="text-gray-700">따뜻한 가족 같은 공동체로<br>주님 안에서 여러분을 초대합니다!</p>
       </div>
       <div class="frosted p-8 text-center warm-shadow">
         <div class="glass-icon"><i class="fas fa-video text-3xl text-purple-400"></i></div>
-        <h3 class="text-lg font-bold mb-2 text-[#543353]">온라인 예배</h3>
+        <h3 class="text-lg font-bold mb-2">온라인 예배</h3>
         <p class="text-gray-700">YouTube를 통한<br>실시간 온라인 예배<br>언제 어디서나 함께</p>
       </div>
     </div>
@@ -102,12 +139,12 @@
   <section id="about" class="py-16">
     <div class="container mx-auto px-4 max-w-4xl">
       <div class="frosted p-10 shadow-xl">
-        <h2 class="text-3xl font-extrabold mb-4 text-[#613659]">교회 소개</h2>
+        <h2 class="text-3xl font-extrabold mb-4">교회 소개</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
-            <h4 class="font-semibold mb-1 text-[#9a4a73]">교회 연혁</h4>
+            <h4 class="font-semibold mb-1" style="color:#9a4a73;">교회 연혁</h4>
             <p class="text-gray-700 mb-4">1996년 10월 26일 개척한 대한예수교장로회(통합) 인천노회 소속 교회로, 28년의 역사를 가진 따뜻한 신앙 공동체입니다.</p>
-            <h4 class="font-semibold mb-1 text-[#9a4a73]">교회 특징</h4>
+            <h4 class="font-semibold mb-1" style="color:#9a4a73;">교회 특징</h4>
             <ul class="text-gray-700 space-y-2">
               <li>• 소규모 가족 같은 사랑의 공동체</li>
               <li>• 온라인 예배 시스템 완비</li>
@@ -116,9 +153,9 @@
             </ul>
           </div>
           <div>
-            <h4 class="font-semibold mb-1 text-[#9a4a73]">비전과 사명</h4>
+            <h4 class="font-semibold mb-1" style="color:#9a4a73;">비전과 사명</h4>
             <p class="text-gray-700 mb-4">하나님의 은혜의 빛으로 어둠을 밝히며, 복음의 진리 안에서 하나되어 지역과 열방을 섬기는 교회</p>
-            <h4 class="font-semibold mb-1 text-[#9a4a73]">교회 위치</h4>
+            <h4 class="font-semibold mb-1" style="color:#9a4a73;">교회 위치</h4>
             <p class="text-gray-700">인천광역시 계양구 용종동 214-1 지하 은빛교회</p>
           </div>
         </div>
@@ -130,15 +167,15 @@
   <section id="pastor" class="py-16">
     <div class="container mx-auto px-4 max-w-4xl">
       <div class="frosted p-10 shadow-xl">
-        <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">담임목사 인사말</h2>
+        <h2 class="text-3xl font-extrabold mb-7 text-center">담임목사 인사말</h2>
         <div class="flex flex-col md:flex-row gap-8 items-center">
           <img src="https://page1.genspark.site/v1/base64_upload/a98fca8747e428e70d53e95f29e6c499" alt="양승보 목사님" class="w-52 h-52 object-cover rounded-full border-4 border-white shadow-md">
           <div>
-            <blockquote class="italic text-lg text-[#7c5a69] mb-3">"사랑하는 성도 여러분과 이 홈페이지를 방문해주신 모든 분들께 하나님의 은혜와 평강이 함께하시기를 기도합니다.<br><br>
+            <blockquote class="mb-3">"사랑하는 성도 여러분과 이 홈페이지를 방문해주신 모든 분들께 하나님의 은혜와 평강이 함께하시기를 기도합니다.<br><br>
             은빛교회는 1996년 개척 이래 하나님의 은혜의 빛으로 어둠을 밝히며, 작지만 따뜻한 가정과 같은 공동체를 이루어가고 있습니다. 이 시대에 주님의 사랑을 실천하며, 복음의 진리 안에서 하나되어 서로 사랑하고 섬기는 교회가 되기를 소망합니다.<br><br>
             언제든지 편안하게 은빛교회로 오셔서 하나님의 사랑을 경험하시고, 우리와 함께 신앙의 여정을 걸어가시기를 진심으로 초대합니다."
             </blockquote>
-            <div class="text-right text-[#613659] font-semibold">은빛교회 담임목사 양승보</div>
+            <div class="text-right font-semibold" style="color:#613659;">은빛교회 담임목사 양승보</div>
           </div>
         </div>
       </div>
@@ -149,10 +186,10 @@
   <section id="service" class="py-16">
     <div class="container mx-auto px-4 max-w-4xl">
       <div class="frosted p-10 shadow-xl">
-        <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">예배 안내</h2>
+        <h2 class="text-3xl font-extrabold mb-7 text-center">예배 안내</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
-            <h3 class="font-bold mb-3 text-[#9a4a73] text-center text-xl">예배 시간</h3>
+            <h3 class="font-bold mb-3 text-center text-xl" style="color:#9a4a73;">예배 시간</h3>
             <div class="space-y-3">
               <div class="flex justify-between items-center border-b pb-2">
                 <span class="font-semibold text-gray-700">주일예배</span>
@@ -169,7 +206,7 @@
             </div>
           </div>
           <div>
-            <h3 class="font-bold mb-3 text-[#9a4a73] text-center text-xl">예배 참여 방법</h3>
+            <h3 class="font-bold mb-3 text-center text-xl" style="color:#9a4a73;">예배 참여 방법</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-3"><i class="fas fa-church text-pink-400"></i><span class="text-gray-700">교회 현장 예배 참석</span></div>
               <div class="flex items-center space-x-3"><i class="fab fa-youtube text-orange-400"></i><span class="text-gray-700">YouTube 온라인 실시간 예배</span></div>
@@ -188,10 +225,10 @@
   <section id="location" class="py-16">
     <div class="container mx-auto px-4 max-w-5xl">
       <div class="frosted p-10 shadow-xl">
-        <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">오시는 길</h2>
+        <h2 class="text-3xl font-extrabold mb-7 text-center">오시는 길</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
-            <h3 class="font-bold mb-3 text-[#9a4a73]">교회 정보</h3>
+            <h3 class="font-bold mb-3" style="color:#9a4a73;">교회 정보</h3>
             <div class="space-y-3">
               <div class="flex items-start space-x-3">
                 <i class="fas fa-map-marker-alt text-pink-400 mt-1"></i>
@@ -218,7 +255,7 @@
             </div>
           </div>
           <div>
-            <h3 class="font-bold mb-3 text-[#9a4a73]">대중교통 안내</h3>
+            <h3 class="font-bold mb-3" style="color:#9a4a73;">대중교통 안내</h3>
             <div class="space-y-3">
               <div class="flex items-start space-x-3">
                 <i class="fas fa-subway text-pink-400 mt-1"></i>
@@ -260,10 +297,10 @@
   <section id="online" class="py-16">
     <div class="container mx-auto px-4 max-w-xl">
       <div class="frosted p-10 shadow-xl text-center">
-        <h2 class="text-3xl font-extrabold mb-5 text-[#613659]">온라인 헌금</h2>
+        <h2 class="text-3xl font-extrabold mb-5">온라인 헌금</h2>
         <div class="text-center mb-5">
           <i class="fas fa-hand-holding-heart text-3xl text-pink-400 mb-2"></i>
-          <h3 class="text-lg font-bold mb-1 text-[#543353]">하나님께 드리는 감사의 헌금</h3>
+          <h3 class="text-lg font-bold mb-1">하나님께 드리는 감사의 헌금</h3>
           <p class="text-gray-700 mb-3">온라인으로도 편리하게 헌금하실 수 있습니다</p>
         </div>
         <div class="bg-white bg-opacity-70 rounded-lg p-6 mb-3">
