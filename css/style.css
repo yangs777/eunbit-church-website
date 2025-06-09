@@ -1,0 +1,8 @@
+body { font-family: 'Noto Sans KR', sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
+header { background: #4a90e2; color: #fff; padding: 20px 0; text-align: center; }
+nav a { color: #fff; margin: 0 10px; text-decoration: none; }
+main { padding: 30px; background: #fff; max-width: 800px; margin: 30px auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+footer { text-align: center; color: #888; padding: 20px 0; font-size: 0.9em; }
+.pastor-img { width: 120px; border-radius: 50%; display: block; margin: 0 auto 20px; }
+.map-responsive { overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0; }
+.map-responsive iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; } 

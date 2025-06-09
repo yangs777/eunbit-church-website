@@ -1,0 +1,11 @@
+{
+  "name": "eunbit-church-website",
+  "version": "1.0.0",
+  "description": "인천 계양구 은빛교회(은혜의 빛) 공식 홈페이지",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo '정적 웹사이트는 로컬 서버에서 실행하세요'"
+  },
+  "author": "양승보 목사, yangs7777@gmail.com",
+  "license": "MIT"
+} 
