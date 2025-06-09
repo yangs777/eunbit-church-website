@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <!-- Noto Sans KR -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- AOS Animate On Scroll CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     html, body {
       height: 100%;
@@ -22,24 +24,89 @@
       box-shadow: 0 4px 32px rgba(120, 120, 180, 0.12), 0 1.5px 8px rgba(180,120,180,0.06);
       border-radius: 1.5rem;
       backdrop-filter: blur(6px);
+      transition: box-shadow 0.22s, transform 0.22s;
+    }
+    .frosted:hover {
+      box-shadow: 0 10px 32px #c3bef7a1;
+      transform: translateY(-3px) scale(1.02);
     }
     .header-bg {
       background: linear-gradient(90deg, #ffb6b9 20%, #c3bef7 100%);
+      transition: background 0.4s, box-shadow 0.4s;
     }
-    .hero-bg {
-      background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+    .header-bg.scrolled {
+      background: linear-gradient(90deg, #c3bef7 40%, #ffb6b9 100%);
+      box-shadow: 0 3px 22px 0 #a992f199;
+    }
+    #mainLogo {
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #2c186f;
+      text-shadow:
+        0 2px 0 #fff,
+        0 5px 18px #c6dbf788,
+        2px 4px 0 #e6e7f5;
+      -webkit-text-stroke: 1.5px #fff;
+      margin-bottom: 0.3em;
+      margin-top: 0.15em;
+      line-height: 1.07;
+      transition: font-size 0.28s cubic-bezier(.2,1,.6,1);
+    }
+    .header-bg.scrolled #mainLogo {
+      font-size: 1.7rem;
+    }
+    nav {
+      margin: 18px 0 2px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      font-weight: 700;
+      font-size: 1.09rem;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      padding: 4px 12px;
+      border-radius: 8px;
+      transition: color .17s, background .17s;
+    }
+    nav a:hover, nav a.active {
+      color: #6745af;
+      background: #fff8;
+    }
+    .logo-slogan {
+      display: inline-block;
+      font-size: 1.23rem;
+      color: #111;
+      font-weight: 700;
+      background: #fffdfbe7;
+      border-radius: 2em;
+      padding: 0.55em 1.6em;
+      margin: 0 auto 16px auto;
+      text-shadow: 0 2px 8px #ebe4fa99, 1px 1px 0 #fff;
+      border: 1.2px solid #eae3ff;
+      box-shadow: 0 2px 14px 0 #eedbff22;
     }
     .btn-warm {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 1.1rem;
       background: linear-gradient(90deg, #fcb69f, #ffb6b9);
       color: #613659;
+      font-weight: 700;
+      border-radius: 2em;
+      padding: 0.7em 2.3em;
+      margin: 0 10px;
+      border: none;
+      box-shadow: 0 2px 18px #cfcfff28;
+      cursor: pointer;
+      transition: background .17s, color .15s, box-shadow .16s, transform .16s;
     }
     .btn-warm:hover {
-      background: linear-gradient(90deg, #ffb6b9, #fcb69f);
-      color: #5f294b;
-      box-shadow: 0 2px 12px #fcb69f40;
-    }
-    .warm-shadow {
-      box-shadow: 0 4px 20px 0 rgba(240, 188, 159, 0.15);
+      background: linear-gradient(90deg, #ffb6b9, #fcb69f 90%);
+      color: #47274e;
+      transform: translateY(-2px) scale(1.045);
+      box-shadow: 0 8px 28px #ddb5f646;
     }
     .glass-icon {
       background: rgba(255,255,255,0.33);
@@ -48,6 +115,28 @@
       box-shadow: 0 2px 12px #c6dbf730;
       margin-bottom: 1em;
       display: inline-block;
+      transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.2s;
+      will-change: transform;
+    }
+    h2, h3, h4 {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #613659;
+    }
+    blockquote {
+      font-size: 1.07rem;
+      color: #7c5a69;
+      background: #fff7fbab;
+      border-left: 4px solid #cebbff88;
+      padding: 1.2em 1.5em;
+      border-radius: 1.5em;
+      margin-bottom: 1em;
+      font-weight: 500;
+    }
+    @media (max-width: 700px) {
+      #mainLogo { font-size: 1.2rem; }
+      .logo-slogan { font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -55,9 +144,9 @@
   <!-- Header -->
   <header class="header-bg text-white py-8 shadow-xl sticky top-0 z-50">
     <div class="container mx-auto px-4 flex flex-col items-center">
-      <h1 class="text-4xl font-extrabold tracking-tight mb-2">은빛교회</h1>
-      <p class="text-xl opacity-90 mb-4">은혜의 빛으로 하나되는 공동체</p>
-      <nav class="flex flex-wrap gap-3 justify-center text-base font-semibold">
+      <h1 id="mainLogo" class="tracking-tight mb-2" data-aos="fade-down">은빛교회</h1>
+      <div class="logo-slogan" data-aos="fade-up" data-aos-delay="150">은혜의 빛으로 하나되는 은빛교회</div>
+      <nav class="flex flex-wrap gap-3 justify-center text-base font-semibold" data-aos="fade-up" data-aos-delay="300">
         <a href="#about" class="hover:text-yellow-200 transition">교회소개</a>
         <a href="#pastor" class="hover:text-yellow-200 transition">담임목사</a>
         <a href="#service" class="hover:text-yellow-200 transition">예배안내</a>
@@ -69,9 +158,9 @@
 
   <!-- Hero Section -->
   <section class="hero-bg py-16 text-center flex flex-col justify-center items-center">
-    <h2 class="text-5xl sm:text-6xl font-extrabold mb-5 text-[#543353]">은혜의 빛으로<br class="sm:hidden"> 하나되는 은빛교회</h2>
-    <p class="text-xl text-[#7c5a69] mb-7 font-semibold">"너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요" (마 5:14)</p>
-    <div class="flex gap-4 flex-wrap justify-center">
+    <h2 class="text-5xl sm:text-6xl font-extrabold mb-5 text-[#543353]" data-aos="zoom-in" data-aos-delay="100">은혜의 빛으로<br class="sm:hidden"> 하나되는 은빛교회</h2>
+    <p class="text-xl text-[#7c5a69] mb-7 font-semibold" data-aos="fade-right" data-aos-delay="300">"너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요" (마 5:14)</p>
+    <div class="flex gap-4 flex-wrap justify-center" data-aos="fade-up" data-aos-delay="400">
       <a href="#service" class="btn-warm font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">예배시간 보기</a>
       <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="btn-warm border border-pink-200 font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">온라인 예배</a>
     </div>
@@ -80,17 +169,17 @@
   <!-- Info Cards -->
   <section class="py-10">
     <div class="container mx-auto px-4 grid md:grid-cols-3 gap-7">
-      <div class="frosted p-8 text-center warm-shadow">
+      <div class="frosted tilt-card text-center warm-shadow" data-aos="fade-up">
         <div class="glass-icon"><i class="fas fa-clock text-3xl text-pink-400"></i></div>
         <h3 class="text-lg font-bold mb-2 text-[#543353]">예배 시간</h3>
         <p class="text-gray-700">주일예배: 오전 10:40<br>금요예배: 오후 8:00<br>온라인 실시간 중계</p>
       </div>
-      <div class="frosted p-8 text-center warm-shadow">
+      <div class="frosted tilt-card text-center warm-shadow" data-aos="fade-up" data-aos-delay="120">
         <div class="glass-icon"><i class="fas fa-heart text-3xl text-orange-400"></i></div>
         <h3 class="text-lg font-bold mb-2 text-[#543353]">새가족 환영</h3>
         <p class="text-gray-700">따뜻한 가족 같은 공동체로<br>주님 안에서 여러분을 초대합니다!</p>
       </div>
-      <div class="frosted p-8 text-center warm-shadow">
+      <div class="frosted tilt-card text-center warm-shadow" data-aos="fade-up" data-aos-delay="240">
         <div class="glass-icon"><i class="fas fa-video text-3xl text-purple-400"></i></div>
         <h3 class="text-lg font-bold mb-2 text-[#543353]">온라인 예배</h3>
         <p class="text-gray-700">YouTube를 통한<br>실시간 온라인 예배<br>언제 어디서나 함께</p>
@@ -101,7 +190,7 @@
   <!-- About -->
   <section id="about" class="py-16">
     <div class="container mx-auto px-4 max-w-4xl">
-      <div class="frosted p-10 shadow-xl">
+      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
         <h2 class="text-3xl font-extrabold mb-4 text-[#613659]">교회 소개</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
@@ -129,16 +218,16 @@
   <!-- Pastor -->
   <section id="pastor" class="py-16">
     <div class="container mx-auto px-4 max-w-4xl">
-      <div class="frosted p-10 shadow-xl">
+      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
         <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">담임목사 인사말</h2>
         <div class="flex flex-col md:flex-row gap-8 items-center">
-          <img src="https://page1.genspark.site/v1/base64_upload/a98fca8747e428e70d53e95f29e6c499" alt="양승보 목사님" class="w-52 h-52 object-cover rounded-full border-4 border-white shadow-md">
+          <img src="https://page1.genspark.site/v1/base64_upload/a98fca8747e428e70d53e95f29e6c499" alt="양승보 목사님" class="w-52 h-52 object-cover rounded-full border-4 border-white shadow-md" data-aos="zoom-in">
           <div>
-            <blockquote class="italic text-lg text-[#7c5a69] mb-3">"사랑하는 성도 여러분과 이 홈페이지를 방문해주신 모든 분들께 하나님의 은혜와 평강이 함께하시기를 기도합니다.<br><br>
+            <blockquote class="italic text-lg text-[#7c5a69] mb-3" data-aos="fade-left" data-aos-delay="200">"사랑하는 성도 여러분과 이 홈페이지를 방문해주신 모든 분들께 하나님의 은혜와 평강이 함께하시기를 기도합니다.<br><br>
             은빛교회는 1996년 개척 이래 하나님의 은혜의 빛으로 어둠을 밝히며, 작지만 따뜻한 가정과 같은 공동체를 이루어가고 있습니다. 이 시대에 주님의 사랑을 실천하며, 복음의 진리 안에서 하나되어 서로 사랑하고 섬기는 교회가 되기를 소망합니다.<br><br>
             언제든지 편안하게 은빛교회로 오셔서 하나님의 사랑을 경험하시고, 우리와 함께 신앙의 여정을 걸어가시기를 진심으로 초대합니다."
             </blockquote>
-            <div class="text-right text-[#613659] font-semibold">은빛교회 담임목사 양승보</div>
+            <div class="text-right text-[#613659] font-semibold" data-aos="fade-right" data-aos-delay="350">은빛교회 담임목사 양승보</div>
           </div>
         </div>
       </div>
@@ -148,7 +237,7 @@
   <!-- Service Times -->
   <section id="service" class="py-16">
     <div class="container mx-auto px-4 max-w-4xl">
-      <div class="frosted p-10 shadow-xl">
+      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
         <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">예배 안내</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
@@ -187,7 +276,7 @@
   <!-- Location -->
   <section id="location" class="py-16">
     <div class="container mx-auto px-4 max-w-5xl">
-      <div class="frosted p-10 shadow-xl">
+      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
         <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">오시는 길</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
@@ -244,7 +333,7 @@
             </div>
           </div>
         </div>
-        <div class="mt-10 rounded-xl overflow-hidden shadow-lg">
+        <div class="mt-10 rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
           <iframe
             src="https://www.google.com/maps?q=37.541292,126.741752&hl=ko&z=18&output=embed"
             width="100%" height="380"
@@ -259,7 +348,7 @@
   <!-- Online Giving -->
   <section id="online" class="py-16">
     <div class="container mx-auto px-4 max-w-xl">
-      <div class="frosted p-10 shadow-xl text-center">
+      <div class="frosted p-10 shadow-xl text-center" data-aos="fade-up">
         <h2 class="text-3xl font-extrabold mb-5 text-[#613659]">온라인 헌금</h2>
         <div class="text-center mb-5">
           <i class="fas fa-hand-holding-heart text-3xl text-pink-400 mb-2"></i>
@@ -313,31 +402,48 @@
       © 2024 은빛교회. All rights reserved.
     </div>
   </footer>
+
+  <!-- JS 라이브러리: Vanilla-tilt, AOS, 스크롤 헤더 -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // 스무스 스크롤
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+    // Tilt.js 카드 효과 적용
+    VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+      max: 20,
+      speed: 600,
+      glare: true,
+      "max-glare": 0.20,
+      scale: 1.05,
+    });
+
+    // AOS 스크롤 등장 효과
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50,
+    });
+
+    // 스크롤 내리면 헤더, 로고 스타일 변경
+    window.addEventListener("scroll", function() {
+      const logo = document.getElementById('mainLogo');
+      const header = document.querySelector('.header-bg');
+      if(window.scrollY > 48) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // (선택) glass-icon에 마우스 올릴 때 추가 애니메이션
+    document.querySelectorAll('.glass-icon').forEach(icon => {
+      icon.addEventListener('mouseenter', () => {
+        icon.style.transition = 'transform 0.2s cubic-bezier(.22,1,.36,1)';
+        icon.style.transform = 'scale(1.29) rotate(-7deg)';
+      });
+      icon.addEventListener('mouseleave', () => {
+        icon.style.transform = '';
       });
     });
   </script>
-  <script>
-window.addEventListener("scroll", function() {
-  const logo = document.getElementById('mainLogo');
-  const header = document.querySelector('.header-bg');
-  if(window.scrollY > 48) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-</script>
 </body>
 </html>
