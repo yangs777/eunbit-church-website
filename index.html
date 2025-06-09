@@ -2,22 +2,25 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>은빛교회 - 은혜의 빛</title>
-  <!-- TailwindCSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
   <!-- Noto Sans KR -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- AOS Animate On Scroll CSS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800;900&display=swap" rel="stylesheet" />
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     html, body {
       height: 100%;
       font-family: 'Noto Sans KR', sans-serif;
       background: linear-gradient(135deg, #fde4ec 0%, #c6dbf7 100%);
       min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      color: #25223b;
     }
     .frosted {
       background: rgba(255,255,255,0.7);
@@ -33,28 +36,32 @@
     .header-bg {
       background: linear-gradient(90deg, #ffb6b9 20%, #c3bef7 100%);
       transition: background 0.4s, box-shadow 0.4s;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
     .header-bg.scrolled {
       background: linear-gradient(90deg, #c3bef7 40%, #ffb6b9 100%);
       box-shadow: 0 3px 22px 0 #a992f199;
     }
-    #mainLogo {
-      font-size: 2.7rem;
+    #mainLogo, .main-logo {
+      font-size: 4rem;
       font-weight: 900;
+      color: #fff !important;
       letter-spacing: -0.03em;
-      color: #2c186f;
-      text-shadow:
-        0 2px 0 #fff,
-        0 5px 18px #c6dbf788,
-        2px 4px 0 #e6e7f5;
-      -webkit-text-stroke: 1.5px #fff;
-      margin-bottom: 0.3em;
-      margin-top: 0.15em;
-      line-height: 1.07;
-      transition: font-size 0.28s cubic-bezier(.2,1,.6,1);
+      line-height: 1.1;
+      margin: 0.1em 0 0.13em 0;
+      text-align: center;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.10);
+      transition: font-size 0.25s cubic-bezier(.2,1,.6,1);
+      font-family: 'Noto Sans KR', sans-serif;
     }
-    .header-bg.scrolled #mainLogo {
-      font-size: 1.7rem;
+    .header-bg.scrolled #mainLogo,
+    .header-bg.scrolled .main-logo {
+      font-size: 2.2rem;
+    }
+    @media (max-width: 700px) {
+      #mainLogo, .main-logo { font-size: 2.1rem; }
     }
     nav {
       margin: 18px 0 2px 0;
@@ -118,6 +125,11 @@
       transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.2s;
       will-change: transform;
     }
+    .frosted.tilt-card:hover .glass-icon {
+      transform: scale(1.21) rotate(-10deg);
+      box-shadow: 0 8px 24px #c6dbf7cc;
+      background: rgba(255,255,255,0.62);
+    }
     h2, h3, h4 {
       font-family: 'Noto Sans KR', sans-serif;
       font-weight: 800;
@@ -135,26 +147,31 @@
       font-weight: 500;
     }
     @media (max-width: 700px) {
-      #mainLogo { font-size: 1.2rem; }
       .logo-slogan { font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
-<!-- Header -->
-<header class="header-bg text-white py-8 shadow-xl sticky top-0 z-50">
-  <div class="container mx-auto px-4 flex flex-col items-center">
-<h1 id="mainLogo" class="main-logo" data-aos="fade-down">은빛교회</h1>
-    <div class="logo-slogan" data-aos="fade-up" data-aos-delay="150">은혜의 빛으로 하나되는 은빛교회</div>
-    <!-- ...nav ... -->
-  </div>
-</header>
+  <!-- Header -->
+  <header class="header-bg text-white py-8 shadow-xl sticky top-0 z-50" data-aos="fade-down">
+    <div class="container mx-auto px-4 flex flex-col items-center">
+      <h1 id="mainLogo" class="main-logo" data-aos="fade-down">은빛교회</h1>
+      <div class="logo-slogan" data-aos="fade-up" data-aos-delay="150">은혜의 빛으로 하나되는 은빛교회</div>
+      <nav data-aos="fade-up" data-aos-delay="300">
+        <a href="#about">교회소개</a>
+        <a href="#pastor">담임목사</a>
+        <a href="#service">예배안내</a>
+        <a href="#location">오시는길</a>
+        <a href="#online">온라인헌금</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Hero Section -->
-  <section class="hero-bg py-16 text-center flex flex-col justify-center items-center">
-    <h2 class="text-5xl sm:text-6xl font-extrabold mb-5 text-[#543353]" data-aos="zoom-in" data-aos-delay="100">은혜의 빛으로<br class="sm:hidden"> 하나되는 은빛교회</h2>
-    <p class="text-xl text-[#7c5a69] mb-7 font-semibold" data-aos="fade-right" data-aos-delay="300">"너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요" (마 5:14)</p>
-    <div class="flex gap-4 flex-wrap justify-center" data-aos="fade-up" data-aos-delay="400">
+  <section class="hero-bg py-16 text-center flex flex-col justify-center items-center" data-aos="fade-up">
+    <h2 class="text-5xl sm:text-6xl font-extrabold mb-5 text-[#543353]">은혜의 빛으로 하나되는 은빛교회</h2>
+    <p class="text-xl text-[#7c5a69] mb-7 font-semibold">"너희는 세상의 빛이라 산 위에 있는 동네가 숨겨지지 못할 것이요" (마 5:14)</p>
+    <div class="flex gap-4 flex-wrap justify-center">
       <a href="#service" class="btn-warm font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">예배시간 보기</a>
       <a href="https://www.youtube.com/@계양구은빛교회" target="_blank" class="btn-warm border border-pink-200 font-bold py-3 px-8 rounded-full shadow hover:scale-105 transition">온라인 예배</a>
     </div>
@@ -163,17 +180,17 @@
   <!-- Info Cards -->
   <section class="py-10">
     <div class="container mx-auto px-4 grid md:grid-cols-3 gap-7">
-      <div class="frosted tilt-card text-center warm-shadow" data-aos="fade-up">
+      <div class="frosted tilt-card text-center" data-aos="fade-up">
         <div class="glass-icon"><i class="fas fa-clock text-3xl text-pink-400"></i></div>
         <h3 class="text-lg font-bold mb-2 text-[#543353]">예배 시간</h3>
         <p class="text-gray-700">주일예배: 오전 10:40<br>금요예배: 오후 8:00<br>온라인 실시간 중계</p>
       </div>
-      <div class="frosted tilt-card text-center warm-shadow" data-aos="fade-up" data-aos-delay="120">
+      <div class="frosted tilt-card text-center" data-aos="fade-up" data-aos-delay="120">
         <div class="glass-icon"><i class="fas fa-heart text-3xl text-orange-400"></i></div>
         <h3 class="text-lg font-bold mb-2 text-[#543353]">새가족 환영</h3>
         <p class="text-gray-700">따뜻한 가족 같은 공동체로<br>주님 안에서 여러분을 초대합니다!</p>
       </div>
-      <div class="frosted tilt-card text-center warm-shadow" data-aos="fade-up" data-aos-delay="240">
+      <div class="frosted tilt-card text-center" data-aos="fade-up" data-aos-delay="240">
         <div class="glass-icon"><i class="fas fa-video text-3xl text-purple-400"></i></div>
         <h3 class="text-lg font-bold mb-2 text-[#543353]">온라인 예배</h3>
         <p class="text-gray-700">YouTube를 통한<br>실시간 온라인 예배<br>언제 어디서나 함께</p>
@@ -182,9 +199,9 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="py-16">
+  <section id="about" class="py-16" data-aos="fade-up">
     <div class="container mx-auto px-4 max-w-4xl">
-      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
+      <div class="frosted p-10 shadow-xl">
         <h2 class="text-3xl font-extrabold mb-4 text-[#613659]">교회 소개</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
@@ -210,9 +227,9 @@
   </section>
 
   <!-- Pastor -->
-  <section id="pastor" class="py-16">
+  <section id="pastor" class="py-16" data-aos="fade-up">
     <div class="container mx-auto px-4 max-w-4xl">
-      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
+      <div class="frosted p-10 shadow-xl">
         <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">담임목사 인사말</h2>
         <div class="flex flex-col md:flex-row gap-8 items-center">
           <img src="https://page1.genspark.site/v1/base64_upload/a98fca8747e428e70d53e95f29e6c499" alt="양승보 목사님" class="w-52 h-52 object-cover rounded-full border-4 border-white shadow-md" data-aos="zoom-in">
@@ -229,9 +246,9 @@
   </section>
 
   <!-- Service Times -->
-  <section id="service" class="py-16">
+  <section id="service" class="py-16" data-aos="fade-up">
     <div class="container mx-auto px-4 max-w-4xl">
-      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
+      <div class="frosted p-10 shadow-xl">
         <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">예배 안내</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
@@ -268,9 +285,9 @@
   </section>
 
   <!-- Location -->
-  <section id="location" class="py-16">
+  <section id="location" class="py-16" data-aos="fade-up">
     <div class="container mx-auto px-4 max-w-5xl">
-      <div class="frosted p-10 shadow-xl" data-aos="fade-up">
+      <div class="frosted p-10 shadow-xl">
         <h2 class="text-3xl font-extrabold mb-7 text-[#613659] text-center">오시는 길</h2>
         <div class="grid md:grid-cols-2 gap-7">
           <div>
@@ -340,9 +357,9 @@
   </section>
 
   <!-- Online Giving -->
-  <section id="online" class="py-16">
+  <section id="online" class="py-16" data-aos="fade-up">
     <div class="container mx-auto px-4 max-w-xl">
-      <div class="frosted p-10 shadow-xl text-center" data-aos="fade-up">
+      <div class="frosted p-10 shadow-xl text-center">
         <h2 class="text-3xl font-extrabold mb-5 text-[#613659]">온라인 헌금</h2>
         <div class="text-center mb-5">
           <i class="fas fa-hand-holding-heart text-3xl text-pink-400 mb-2"></i>
@@ -428,7 +445,7 @@
       }
     });
 
-    // (선택) glass-icon에 마우스 올릴 때 추가 애니메이션
+    // glass-icon에 마우스 올릴 때 애니메이션
     document.querySelectorAll('.glass-icon').forEach(icon => {
       icon.addEventListener('mouseenter', () => {
         icon.style.transition = 'transform 0.2s cubic-bezier(.22,1,.36,1)';
