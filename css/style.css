@@ -25,23 +25,27 @@ body {
   box-shadow: 0 3px 22px 0 #a992f199;
 }
 
-#mainLogo {
-  font-size: 2.7rem;
+/* 💖 은빛교회 메인 로고 완전 깔끔! */
+#mainLogo, .main-logo {
+  font-size: 4rem;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 900;
+  color: #fff !important;
   letter-spacing: -0.03em;
-  color: #2c186f;
+  line-height: 1.1;
+  margin: 0.1em 0 0.13em 0;
+  text-align: center;
   text-shadow:
-    0 2px 0 #fff,
-    0 5px 18px #c6dbf788,
-    2px 4px 0 #e6e7f5;
-  -webkit-text-stroke: 1.5px #fff;
-  margin-bottom: 0.3em;
-  margin-top: 0.15em;
-  line-height: 1.07;
-  transition: font-size 0.28s cubic-bezier(.2,1,.6,1);
+    0 4px 24px rgba(60,60,60,0.10),
+    0 2px 4px #fff;
+  transition: font-size 0.25s cubic-bezier(.2,1,.6,1);
 }
-.header-bg.scrolled #mainLogo {
-  font-size: 1.7rem;
+.header-bg.scrolled #mainLogo,
+.header-bg.scrolled .main-logo {
+  font-size: 2.2rem;
+}
+@media (max-width: 700px) {
+  #mainLogo, .main-logo { font-size: 2.1rem; }
 }
 
 /* 네비게이션 */
@@ -152,28 +156,5 @@ blockquote {
 
 /* 반응형 */
 @media (max-width: 700px) {
-  #mainLogo { font-size: 1.2rem; }
   .logo-slogan { font-size: 0.95rem; }
-}
-#mainLogo, .main-logo {
-  font-size: 4rem;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 900;
-  color: #fff !important;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin: 0.1em 0 0.13em 0;
-  text-align: center;
-  text-shadow:
-    0 4px 24px rgba(60,60,60,0.10),
-    0 2px 4px #fff;
-  /* 외곽선, -webkit-text-stroke, 파란/보라 그림자 절대 X */
-  transition: font-size 0.25s cubic-bezier(.2,1,.6,1);
-}
-.header-bg.scrolled #mainLogo,
-.header-bg.scrolled .main-logo {
-  font-size: 2.2rem;
-}
-@media (max-width: 700px) {
-  #mainLogo, .main-logo { font-size: 2.1rem; }
 }
