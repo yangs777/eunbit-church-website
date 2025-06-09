@@ -177,3 +177,26 @@ blockquote {
 @media (max-width: 700px) {
   .main-logo { font-size: 2.1rem; }
 }
+#mainLogo, .main-logo {
+  font-size: 4rem;
+  font-weight: 900;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  margin-bottom: 0.13em;
+  margin-top: 0.1em;
+  text-shadow:
+    0 3px 12px rgba(80,80,80,0.11),
+    0 1.5px 0 #fff;
+  /* 너무 강한 그림자, -webkit-text-stroke 제거! */
+  /* -webkit-text-stroke: 1.5px #fff; (삭제 또는 #fff 1px만 사용!) */
+  transition: font-size 0.28s cubic-bezier(.2,1,.6,1);
+}
+.header-bg.scrolled #mainLogo,
+.header-bg.scrolled .main-logo {
+  font-size: 2.2rem;
+}
+@media (max-width: 700px) {
+  #mainLogo, .main-logo { font-size: 2.1rem; }
+}
