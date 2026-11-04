@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yangs777.github.io/eunbit-church-website/sitemap.xml
