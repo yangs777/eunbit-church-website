@@ -17,8 +17,10 @@
 - **관리자 이메일:** yangs7777@gmail.com
 
 ## 구성
-- 반응형 한 페이지(휴대폰·PC 공용). 외부 라이브러리는 Pretendard 글꼴만 씁니다.
-- 예배시간·오시는길·온라인 예배·전화 바로가기, 구글 지도, 계좌번호 복사 버튼
+- 반응형 한 페이지(휴대폰·PC 공용). 프레임워크 없이 HTML·CSS·작은 스크립트만 씁니다. 글꼴은 Pretendard(본문)와 Noto Serif KR(제목·말씀)입니다.
+- 히어로 그림(새벽빛·언덕 위 십자가·동네)은 `index.html` 안의 SVG로 직접 그렸습니다.
+- 온라인 예배: YouTube 채널(`UC383cKQGFGMIBgrF0CoPvQg`) 업로드 목록을 누르면 불러오는 방식(youtube-nocookie)으로 보여 줍니다. 영상 썸네일은 i.ytimg.com에서 불러옵니다.
+- 예배시간(다음 예배 자동 계산)·오시는길·온라인 예배·전화 바로가기, 구글 지도, 주소·계좌번호 복사 버튼, 휴대폰 하단 빠른 메뉴
 - 검색엔진: 설명문, canonical, OG 태그, JSON-LD(Church), `sitemap.xml`, `robots.txt`
 
 ## 파일 구조
@@ -32,3 +34,4 @@
 ## 배포
 main 브랜치에 올리면 GitHub Pages에 자동으로 반영됩니다.
 미리보기: 저장소 폴더에서 `python -m http.server` 실행 후 http://localhost:8000
+검토용 스크린샷은 `_review/`에 두며 배포하지 않습니다(.gitignore).
